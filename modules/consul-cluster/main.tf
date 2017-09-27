@@ -120,7 +120,7 @@ resource "aws_security_group_rule" "allow_all_outbound" {
 # ---------------------------------------------------------------------------------------------------------------------
 
 module "security_group_rules" {
-  source = "../consul-security-group-rules"
+  source = "./consul-security-group-rules"
 
   security_group_id           = "${aws_security_group.lc_security_group.id}"
   allowed_inbound_cidr_blocks = ["${var.allowed_inbound_cidr_blocks}"]
@@ -182,7 +182,7 @@ data "aws_iam_policy_document" "instance_role" {
 # ---------------------------------------------------------------------------------------------------------------------
 
 module "iam_policies" {
-  source = "../consul-iam-policies"
+  source = "./consul-iam-policies"
 
   iam_role_id = "${aws_iam_role.instance_role.id}"
 }
